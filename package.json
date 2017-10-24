@@ -1,0 +1,23 @@
+{
+  "name": "1024homework",
+  "version": "1.0.0",
+  "description": "搜索输入框",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karryGit/1024homework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karryGit/1024homework/issues"
+  },
+  "homepage": "https://github.com/karryGit/1024homework#readme",
+  "dependencies": {
+    "vue": "^2.5.2"
+  }
+}
