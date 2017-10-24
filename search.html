@@ -31,7 +31,6 @@
         el: '#app',
         data() {
             return {
-                list: [],
                 search_src: 'img/放大镜.png',
                 place: 'Enter your search terms',
                 searchStr: "",
@@ -78,14 +77,14 @@
                 }
                 //把查询的内容转为小写的
                 searchStr = searchStr.trim().toLowerCase();
-                //这里value是个数组,他也有filter方法的.item是value里面的。
+                //这里value是个数组,使用filter方法的.item是value里面的。
                 result = value.filter(function (item) {
                     //判断数组中是否存在该值,存在则返回
                     if (item.title.toLowerCase().indexOf(searchStr) != -1) {
                         return item;
                     }
                 });
-                //将结果数组返回给v-for
+                //将新数组返回去
                 return result;
             }
         }

@@ -35,7 +35,6 @@
         el: '#app',
         data() {
             return {
-                list: [],
                 search_src: 'img/放大镜.png',
                 place: 'Enter your search terms',
                 searchStr: "",
