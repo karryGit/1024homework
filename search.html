@@ -6,8 +6,77 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="search.css">
+    <script src="node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
-
+<div id="app">
+    <!--搜索框-->
+    <div id="search_header">
+        <img :src="magnifier" alt="" id="magnifier">
+        <input type="text" id="search_input" :placeholder="input_place" v-model="search_model" @input="inputEvent">
+    </div>
+    <div id="search_content">
+        <div id="search_left" v-for="(value,index) in array" :key="index" ref="search" v-show="search_show">
+            <img :src="value.image" alt="">
+            <a :href="value.url">
+                <p ref="value_title" :title="value.title">{{value.title}}</p>
+            </a>
+            <div class="hengxian"></div>
+        </div>
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            magnifier: 'img/放大镜.png',
+            input_place: 'Enter your search terms',
+            search_model: '',
+            index: '',
+            search_show: false,
+            array: [{
+                "title": "What You Need To Know About CSS Variables",
+                "url": "http://tutorialzine.com/2016/03/what-you-need-to-know-about-css-variables/",
+                "image": 'https://tutorialzine.com/media/2016/03/css-variables.jpg'
+            },
+                {
+                    "title": "Freebie: 4 Great Looking Pricing Tables",
+                    "url": "http://tutorialzine.com/2016/02/freebie-4-great-looking-pricing-tables/",
+                    "image": 'https://tutorialzine.com/media/2016/02/great-looking-pricing-tables.jpg'
+                },
+                {
+                    "title": "20 Interesting JavaScript and CSS Libraries for February 2016",
+                    "url": "http://tutorialzine.com/2016/02/20-interesting-javascript-and-css-libraries-for-february-2016/",
+                    "image": 'https://tutorialzine.com/media/2016/02/interesting-resources-february.jpg'
+                },
+                {
+                    "title": "Quick Tip: The Easiest Way To Make Responsive Headers",
+                    "url": "http://tutorialzine.com/2016/02/quick-tip-easiest-way-to-make-responsive-headers/",
+                    "image": 'https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png'
+                },
+                {
+                    "title": "Learn SQL In 20 Minutes",
+                    "url": "http://tutorialzine.com/2016/01/learn-sql-in-20-minutes/",
+                    "image": 'https://tutorialzine.com/media/2016/01/learn-sql-20-minutes.png'
+                },
+                {
+                    "title": "Creating Your First Desktop App With HTML, JS and Electron",
+                    "url": "http://tutorialzine.com/2015/12/creating-your-first-desktop-app-with-html-js-and-electron/",
+                    "image": 'https://tutorialzine.com/media/2015/12/creating-your-first-desktop-app-with-electron.png'
+                }]
+        },
+        methods: {
+            inputEvent: function () {
+                for (var i = 0; i < this.$refs.value_title.length; i++) {
+                    if (this.$refs.value_title[i].innerText.indexOf(this.search_model) != -1) {
+                           this.search_show = true;
+                           console.log(this.index)
+                    }
+                }
+            }
+        }
+    })
+</script>
 </body>
 </html>
